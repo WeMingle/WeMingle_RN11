@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { View, Modal, Dimensions } from 'react-native';
-import { CommonText, CommonTouchableOpacity, Container, ModalContainer, RowBox } from '../../component/Styled';
-import { Colors } from '../Colors';
+import { CommonText, CommonTouchableOpacity, Container, ModalContainer, RowBox } from '../../screen/CommonStyled.style';
+import { Colors } from '../../assets/color/Colors';
 import { Checkbox, RadioButton } from 'react-native-paper';
 import { useNavigation } from '@react-navigation/native';
 
@@ -9,10 +9,10 @@ const AccountBottomSlideModal = ({ modalVisible, setModalVisible, setPostData, S
   const navigation = useNavigation();
 
   useEffect(() => {
-    setPostData(prev => {
-      return { ...prev, signupPlatform: 'NONE', phoneType: 'AOS', firebaseToken: 'test', allowNotification: true }
-    })
-  }, [])
+    setPostData((prev) => {
+      return { ...prev, signupPlatform: 'NONE', phoneType: 'AOS', firebaseToken: 'test', allowNotification: true };
+    });
+  }, []);
 
   return (
     <>
@@ -72,9 +72,8 @@ const AccountBottomSlideModal = ({ modalVisible, setModalVisible, setPostData, S
               </CommonText>
             </RowBox>
             <CommonTouchableOpacity
-              onPress={() => {
-                SignUpEmail()
-                return
+              onPress={async () => {
+                await SignUpEmail();
                 setModalVisible(false);
                 navigation.navigate('SignUpComplete');
               }}
