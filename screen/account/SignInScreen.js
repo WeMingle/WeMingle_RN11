@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { Image, Text, View, TouchableOpacity, StatusBar, Modal, Dimensions } from 'react-native';
-import { AccountButton, BaseSafeView, CenterBox, CommonInput, commonInput, CommonText, CommonTouchableOpacity, Container, FlexAutoView, ModalContainer, RowBox, StartButton } from '../../component/Styled';
+import { AccountButton, BaseSafeView, CenterBox, CommonInput, commonInput, CommonText, CommonTouchableOpacity, Container, FlexAutoView, ModalContainer, RowBox, StartButton } from '../../screen/CommonStyled.style';
 import Back_Icon from '../../assets/Back_Icon.png';
 import Apple_Icon from '../../assets/apple.png';
 import Google_Icon from '../../assets/google.png';
 import Kakao_Icon from '../../assets/kakaotalk.png';
 import Naver_Icon from '../../assets/naver.png';
-import { Colors } from '../../component/Colors';
+import { Colors } from '../../assets/color/Colors';
 import { useNavigation } from '@react-navigation/native';
 import { Checkbox, RadioButton } from 'react-native-paper';
 import AccountBottomSlideModal from '../../component/modal/AccountBottomSlideModal';
@@ -15,13 +15,10 @@ import AccountHeader from '../../component/header/AccountHeader';
 const SignUpScreen = () => {
   const navigation = useNavigation();
 
-  const [modalVisible, setModalVisible] = useState(false);
-
   return (
     <BaseSafeView>
-      <AccountBottomSlideModal modalVisible={modalVisible} setModalVisible={setModalVisible} />
       <Container>
-        <AccountHeader headerTitle={'회원 가입'} />
+        <AccountHeader headerTitle={'로그인'} />
         <CommonText marginT={28} fontSize={14}>
           아이디
         </CommonText>
@@ -31,10 +28,6 @@ const SignUpScreen = () => {
           비밀번호
         </CommonText>
         <CommonInput />
-
-        <AccountButton style={{ bottom: 20, position: 'absolute', alignSelf: 'center' }} bgColor={'#D7DCE5'} marginT={20}>
-          <CommonText color={'#fff'}>로그인</CommonText>
-        </AccountButton>
 
         <RowBox alignC marginT={46}>
           <FlexAutoView style={{ height: 2, backgroundColor: Colors.c_gray300 }}></FlexAutoView>
@@ -66,6 +59,10 @@ const SignUpScreen = () => {
             아이디 찾기 | 비밀번호 찾기
           </CommonText>
         </CenterBox>
+
+        <AccountButton onPress={() => navigation.navigate('Onboarding')} style={{ bottom: 20, position: 'absolute', alignSelf: 'center' }} bgColor={'#D7DCE5'} marginT={20}>
+          <CommonText color={'#fff'}>로그인</CommonText>
+        </AccountButton>
       </Container>
     </BaseSafeView>
   );

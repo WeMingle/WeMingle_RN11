@@ -1,6 +1,6 @@
 import React from 'react';
 import { Image, TouchableOpacity } from 'react-native';
-import { BaseSafeView, CenterBox, CommonText, Container, RowBox, StartButton } from '../component/Styled';
+import { BaseSafeView, CenterBox, CommonText, Container, RowBox, StartButton } from './CommonStyled.style';
 
 import Logo from '../assets/Logo.png';
 import { useNavigation } from '@react-navigation/native';

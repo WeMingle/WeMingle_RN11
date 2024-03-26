@@ -1,3 +1,0 @@
-const DESIGN_WIDTH = 360;
-
-const DESIGN_CONST = 640;
