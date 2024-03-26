@@ -1,10 +1,9 @@
 import axios from 'axios';
-import { BASE_URL, makeApiToken } from './Common';
+import { axiosPrivate } from './Common';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 export const SignUp = async (payload) => {
-  const url = BASE_URL + '/member/signup';
-  const response = await axios.post(url, payload, 'accept: application/json', 'Content-Type: application/json').catch((error) => {
+  const response = await axiosPrivate.post(url, payload, 'accept: application/json', 'Content-Type: application/json').catch((error) => {
     console.log(error);
   });
 
@@ -17,8 +16,7 @@ export const SignUp = async (payload) => {
 };
 
 export const AddProfile = async (payload) => {
-  const url = BASE_URL + '/member/profile';
-  const response = await axios.post(url, payload).catch((error) => {
+  const response = await axiosPrivate.post(url, payload).catch((error) => {
     console.log(error);
   });
 
@@ -29,9 +27,7 @@ export const AddProfile = async (payload) => {
 };
 
 export const CheckNickName = async (payload) => {
-  const url = `${BASE_URL}/nickname/${payload.nickName}/availability`;
-
-  const response = await axios.get(url).catch((e) => {
+  const response = await axiosPrivate.get(url).catch((e) => {
     console.log(e);
   });
   if (response.data.responseMessage === '사용 가능한 닉네임입니다.') {
