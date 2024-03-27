@@ -8,7 +8,7 @@ export default function App() {
   const [fontsLoaded, fontError] = useFonts({
     'Pretendard-Medium': require('./assets/fonts/Pretendard-Medium.ttf'),
     'Pretendard-Regular': require('./assets/fonts/Pretendard-Regular.ttf'),
-    'Pretendard-SemiBold': require('./assets/fonts/Pretendard-SemiBold.ttf'),
+    'Pretendard-SemiBold': require('./assets/fonts/Pretendard-SemiBold.ttf '),
   });
 
   const onLayoutRootView = useCallback(async () => {
